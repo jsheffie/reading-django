@@ -1,7 +1,7 @@
-
-This is a change
-another change
-commit from desktop
-
-
-
+eflorenzano.com  =  Eric Florenzano,
+                    Has a cool idea (devel) about managing development envs.
+                    see screencast: 
+                    http://www.eflorenzano.com/blog/post/first-two-django-screencasts/
+ 
+                    also I use his pagination stuff for now.
+                    http://django-pagination.googlecode.com/svn/trunk
