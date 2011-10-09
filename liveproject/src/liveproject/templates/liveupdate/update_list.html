@@ -15,34 +15,6 @@
          div.clear { clear: both; height: 1px; }
       </style>
         
-      <script type="text/javascript" language="javascript" src="/media/js/jquery-1.2.3.min.js"></script>
-      <script type="text/javascript" language="javascript">
-         function update() {
-            update_holder = $("#update-holder");
-            most_recent = update_holder.find("div:first");
-            $.getJSON("/updates-after/" + most_recent.attr('id') + "/",
-               function(data) {
-                  cycle_class = most_recent.hasClass("odd") ? "even" : "odd";
-                  jQuery.each(data, function() {
-                            					 update_holder.prepend('<div id="' + this.pk
-                                                 + '" class="update "' + cycle_class
-                                                 + '"><div class="timestamp">'
-                                                 + this.fields.timestamp
-                                                 + '</div><div class="text">'
-                                                 + this.fields.text
-                                                 + '</div><div class="clear"></div></div>'
-                                                 );
-                                                 cycle_class = (cycle_class == "odd") ? "even" : "odd";
-                        						}
-							);
-                    		}
-                	);
-
-            }
-            $(document).ready(function() {
-                setInterval("update()", 6000);
-            })
-        </script>
     </head>
     <body>
         <h1>Welcome to the Live Update!</h1>
@@ -54,7 +26,7 @@
                 <div class="update {% cycle even,odd %}"
                     id="{{ object.id }}">
                     <div class="timestamp">
-                        {{ object.timestamp|date:"Y-m-d H:i:s" }}
+                        {{ object.id }} {{ object.timestamp|date:"Y-m-d H:i:s" }}
                     </div>
                     <div class="text">
                         {{ object.text|linebreaksbr }}
@@ -66,5 +38,44 @@
         {% else %}
             <p>No updates yet - please check back later!</p>
         {% endif %}
+        
+ 	  <!-- script tags go into body for asyncorous page loads speed. -->       
+      <script type="text/javascript" language="javascript" src="/media/js/jquery-1.2.3.min.js"></script>
+      <script type="text/javascript" language="javascript">
+         function update() {
+            update_holder = $("#update-holder");
+            most_recent = update_holder.find("div:first");
+            //cnt=0
+            //rm_items=[]
+            $.getJSON("/updates-after/" + most_recent.attr('id') + "/",
+               function(data) {
+                cycle_class = most_recent.hasClass("odd") ? "even" : "odd";
+                  jQuery.each(data, function() {
+                      								
+                      							 cnt=this.pk
+                      							 //alert("cnt = " + cnt)
+                            					 update_holder.prepend('<div id="' + this.pk
+                                                 + '" class="update ' + cycle_class + '"><div class="timestamp">'
+                                                 + this.pk + " " + this.fields.timestamp
+                                                 + '</div><div class="text">'
+                                                 + this.fields.text
+                                                 + '</div><div class="clear"></div></div>'
+                                                 );
+                                                 lastone="#" + (cnt - 20)
+                                                 //alert(lastone)
+                      						     $(lastone).remove();
+                      						     //rm_items.push(lastone)
+                                                 cycle_class = (cycle_class == "odd") ? "even" : "odd";
+                        						}
+					
+							);
+                    		}
+            );
+         }
+         $(document).ready(function() {
+         	setInterval("update()", 1000);
+         })
+	</script>
+
     </body>
 </html>
