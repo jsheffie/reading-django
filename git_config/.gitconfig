@@ -1,0 +1,12 @@
+[user]
+	name = Jeff Sheffield
+	email = jeff.sheffield@gmail.com
+[color]
+	ui = auto
+[alias]
+	st = status
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative -15
+[core]
+	editor = vi
+        excludesfile = /home/jds/git_excludes.txt
+        
