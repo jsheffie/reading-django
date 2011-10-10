@@ -8,3 +8,9 @@ eflorenzano.com  =  Eric Florenzano,
                     also I use his pagination stuff for now.
                     http://django-pagination.googlecode.com/svn/trunk
 
+git_config = My git Configuration
+
+liveproject
+
+Practical Django Projects:
+    - cms
