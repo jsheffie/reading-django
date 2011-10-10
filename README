@@ -1,5 +1,3 @@
-
-
 eflorenzano.com  =  Eric Florenzano,
                     Has a cool idea (devel) about managing development envs.
                     see screencast: 
@@ -9,17 +7,35 @@ eflorenzano.com  =  Eric Florenzano,
                     http://django-pagination.googlecode.com/svn/trunk
 
 git_config = My git Configuration
+livecd_txfer_script = Python script for taring up a dir
 
 liveproject = here is my logfile tailer ( jquery stuff) [ I forgot where this got started from ]
 
 Books: 
-      Practical Django Projects:
-         - cms: Content Management System Example.
-      Head First Programming: ( Python )
-      Head First Ajax
-         - HFJQuery_Ch01_dom_less_scary 
-      Head First JQuery
+      Python Development With Django: ( Purple book)
+         - pastebin = pretty dam clean example. 
 
+      Practical Django Projects ( 2nd ed): ( yellow book)
+         - cms: Content Management System Example.
+
+      Head First Programming: ( Python )
+         - HFP_Game_show_host = djmixer, headex_deliveries, announcer_count ( Tkinter demos)
+
+      Head First Ajax
+         - HFAjax_Ch01_Final
+         - HFAjax_Ch01_jeff
+
+      Head First JQuery
+         - HFJQuery_Ch01_dom_less_scary = Move Up, move down, change color, hide/unhide
+                                        = might as well jump ( my owne creation)
+         - HFJQuery_Ch02 = jump
+
+      Pro Django
+
+      
+
+- django_topics_db_queries = these came out of reading django's online docs
+- making_queries
 
 - celery-test-project
 - django_celery_demoproject
@@ -27,6 +43,18 @@ Books:
 - django_logtailer = this was the django logtailer app ( which plugs into the admin interface, pretty cool)
 - django_topics_db_queries
 - gallery
+- jeffsite
+- jeffsite_djadmin
+
+log_driver_prototype
+logging_auth_prototype2
+
+photo_gallery
+readit_django_proto
+README
+twisted
+twitterclone
+xxdiff-subversion
 
 Notes:
 dpaste.el =  https://github.com/gregnewman/dpaste.el.git
@@ -35,5 +63,35 @@ dpaster = client to past to dpaste ( twill, and klipper DCOP "pykde")
 
 google-code-prettify-read-only
 syntaxhighlighter_3.0.83
-
 django-mingus
+
+These are the tool in my home devel box.
+drwxr-xr-x 12 jds jds  4096 2011-10-07 07:37 celery
+drwxr-xr-x  3 jds jds  4096 2010-07-19 09:40 django-ajax-selects-1.1.4
+-rw-r--r--  1 jds jds 16081 2011-10-05 23:52 django-ajax-selects-1.1.4.tar.gz
+drwxr-xr-x 14 jds jds  4096 2011-10-07 08:57 django-celery
+drwxr-xr-x  6 jds jds  4096 2011-10-05 13:47 django-dynamic-formset
+drwxr-xr-x  4 jds jds  4096 2011-10-07 16:29 django-logtailer
+drwxr-xr-x  6 jds jds  4096 2011-10-04 09:39 django-pagination
+drwxr-xr-x  9 jds jds  4096 2011-10-04 09:34 django-trunk
+drwxr-xr-x  9 jds jds  4096 2011-10-06 23:00 python-ldap
+drwxr-xr-x  2 jds jds  4096 2011-10-04 09:35 toolbox
+
+Ubuntu Installed @ home
+Commit Log for Sat Oct  8 21:40:54 2011
+Installed the following packages:
+python-django-auth-ldap (1.0.5-1)
+
+Commit Log for Fri Oct  7 14:51:18 2011
+Installed the following packages:
+gq (1.3.4-1)
+
+Commit Log for Fri Oct  7 07:40:47 2011
+Installed the following packages:
+erlang-os-mon (1:13.b.3-dfsg-2ubuntu3)
+erlang-snmp (1:13.b.3-dfsg-2ubuntu3)
+rabbitmq-server (2.3.1-1ubuntu1)
+
+Commit Log for Thu Oct  6 23:01:45 2011
+Installed the following packages:
+python-ldap (2.3.11-1ubuntu2)
