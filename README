@@ -46,15 +46,15 @@ Books:
 - jeffsite
 - jeffsite_djadmin
 
-log_driver_prototype
-logging_auth_prototype2
-
 photo_gallery
 readit_django_proto
-README
 twisted
 twitterclone
 xxdiff-subversion
+
+Working on the LDAP Stuff:
+logging_auth_prototype  = this one uses a snippits version of LDAP authentication.
+logging_auth_prototype2 = This is the prototype using http://packages.python.org/django-auth-ldap/
 
 Notes:
 dpaste.el =  https://github.com/gregnewman/dpaste.el.git

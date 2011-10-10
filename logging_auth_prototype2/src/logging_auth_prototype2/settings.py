@@ -70,28 +70,33 @@ AUTHENTICATION_BACKENDS = (
 AUTH_LDAP_SERVER_URI = "ldap://strongarm.ultra-ats.com"
 
 import ldap
-#from django_auth_ldap.config import LDAPSearch
+from django_auth_ldap.config import LDAPSearch
 
-#AUTH_LDAP_BIND_DN = "anonldap"
-#AUTH_LDAP_BIND_PASSWORD = "atsadmin"
-##AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=ultra-ats,dc=com",
-#AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=users,dc=ultra-ats,dc=com",
-##AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=ultra-ats,dc=com",
-#    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+AUTH_LDAP_BIND_DN = "anonldap@ultra-ats.com"
+AUTH_LDAP_BIND_PASSWORD = "atsadmin"
+
+#AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=ultra-ats,dc=com",
+AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=Users,dc=ultra-ats,dc=com",
+    ldap.SCOPE_SUBTREE, "(sAMAccountName=%(user)s)")
+#    ldap.SCOPE_SUBTREE, "(cn=%(user)s)")
 
 
 #AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=ultra-ats,dc=com"
-#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=users,dc=ultra-ats,dc=com"
-AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,dc=ultra-ats,dc=com"
-AUTH_LDAP_START_TLS = True
+#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=Users,dc=ultra-ats,dc=com"
+#AUTH_LDAP_USER_DN_TEMPLATE = "sAMAccountName=%(user)s,cn=Users,dc=ultra-ats,dc=com"
+#AUTH_LDAP_USER_DN_TEMPLATE = "cn=Users,dc=ultra-ats,dc=com"
+#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,dc=ultra-ats,dc=com"
+#AUTH_LDAP_START_TLS = True
 
 #AUTH_LDAP_GLOBAL_OPTIONS = {
 #                            ldap.OPT_REFERRALS: 0,
 #                            }
 AUTH_LDAP_USER_ATTR_MAP = {
+                            
     "first_name": "givenName",
     "last_name": "sn",
-    "email": "mail"
+    "email": "mail",
+#    "groups": "memberOf"
 }
 
 import logging
@@ -106,7 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    #'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

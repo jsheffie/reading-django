@@ -13,17 +13,18 @@ try:
     l = ldap.open("strongarm.ultra-ats.com")
     l.protocol_version = ldap.VERSION3
     #username = "cn=anonldap, cn=Users, dc=ultra-ats, dc=com"
-    username = "cn=anonldap, dc=ultra-ats, dc=com"
+    username = "anonldap@ultra-ats.com"
     password  = "atsadmin"
     l.simple_bind(username, password)
 except ldap.LDAPError, e:
     print e
 
-baseDN = "cn=users, dc=ultra-ats, dc=com"
+baseDN = "cn=Users, dc=ultra-ats, dc=com"
 searchScope = ldap.SCOPE_SUBTREE
-searchFilter = "cn=*jack*"
+searchFilter = "cn=*jeff*"
+#searchFilter = "cn=*jack*"
 retrieveAttributes = None 
-
+#retrieveAttributes = ["displayName","sAMAccountName"]
 try:
     ldap_result_id = l.search(baseDN, searchScope, searchFilter, retrieveAttributes)
     result_set = []
@@ -38,6 +39,16 @@ try:
             ## The appending to list is just for illustration. 
             if result_type == ldap.RES_SEARCH_ENTRY:
                 result_set.append(result_data)
-    print result_set
+    for itm in result_set:
+        user_dn=itm[0][0]
+        user_dict=itm[0][1]
+        print "-----------------------------------"
+        print "%s" % (user_dn) 
+        print "-----------------------------------"
+        for (key, value) in user_dict.iteritems():
+            print "Key: %-30s, %s" % (key, value)
+        #foo = itm[0][0]
+        #print "-----> %s" % ( foo)
+        #print "---> %s" % (type(itm[foo]))
 except ldap.LDAPError, e:
-	print e
+    print e

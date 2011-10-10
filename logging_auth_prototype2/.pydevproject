@@ -11,4 +11,7 @@
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/logging_auth_prototype2/src</path>
 </pydev_pathproperty>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>/usr/lib/pymodules/python2.6/django</path>
+</pydev_pathproperty>
 </pydev_project>
