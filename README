@@ -10,7 +10,30 @@ eflorenzano.com  =  Eric Florenzano,
 
 git_config = My git Configuration
 
-liveproject
+liveproject = here is my logfile tailer ( jquery stuff) [ I forgot where this got started from ]
 
-Practical Django Projects:
-    - cms
+Books: 
+      Practical Django Projects:
+         - cms: Content Management System Example.
+      Head First Programming: ( Python )
+      Head First Ajax
+         - HFJQuery_Ch01_dom_less_scary 
+      Head First JQuery
+
+
+- celery-test-project
+- django_celery_demoproject
+
+- django_logtailer = this was the django logtailer app ( which plugs into the admin interface, pretty cool)
+- django_topics_db_queries
+- gallery
+
+Notes:
+dpaste.el =  https://github.com/gregnewman/dpaste.el.git
+             Emacs Dpaste Plugin
+dpaster = client to past to dpaste ( twill, and klipper DCOP "pykde")
+
+google-code-prettify-read-only
+syntaxhighlighter_3.0.83
+
+django-mingus

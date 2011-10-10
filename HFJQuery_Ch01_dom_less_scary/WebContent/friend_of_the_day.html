@@ -1,0 +1,23 @@
+<html>
+<!--  taken from the friend of the day example, I turned it into the "might as well jump" example. -->
+	<head>
+		<title>Might as well Jump.</title>
+        <link rel="stylesheet" type="text/css" href="css/jump.css" />
+	</head>
+	<body>
+		<div id="clickMe">Might as Well Jump</div>
+	    <div id="picframe">
+	    	<img src="img/might_as_well_jump.jpg">
+   		</div>
+   
+   	<script src="js/jquery-1.6.2.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			$("#clickMe").click(function() {
+				$("img").fadeIn(1000);
+				$("#picframe").slideToggle("slow");
+				});
+			});
+    </script>
+	</body>
+</html>

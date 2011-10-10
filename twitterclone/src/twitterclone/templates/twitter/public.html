@@ -1,0 +1,16 @@
+{% load pagination_tags %}
+<html>
+<head>
+	<title>Tweets</title>
+</head>
+<body>
+	<h1>Twitter Clone</h1>
+	<div id="container">
+	    {% autopaginate tweets 4 %}
+		{% for tweet in tweets %}
+			<p><b>{{ tweet.user.username }}</b> {{ tweet.message }}</p>
+		{% endfor %}
+		{% paginate %}
+	</div>
+</body>
+</html>
