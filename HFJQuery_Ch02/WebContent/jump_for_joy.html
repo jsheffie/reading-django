@@ -25,6 +25,12 @@
 				var discount_msg = "<p>Your Discount is "+ discount +"%</p>";
 				$(this).append(discount_msg);
 				//alert(discount);
+				//$(this).unbind("click") // remove the click so it cannot be clicked again
+				//$(".guess_box").unbind("click") // remove the click so it cannot be clicked again
+				// another way to do the sam thing 
+				$(".guess_box").each(function() {
+					$(this).unbind("click")
+				});
 			});
 		});
 	</script>
