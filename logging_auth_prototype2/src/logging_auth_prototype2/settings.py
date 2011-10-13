@@ -67,26 +67,19 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-AUTH_LDAP_SERVER_URI = "ldap://strongarm.ultra-ats.com"
+AUTH_LDAP_SERVER_URI = "ldap://example.com"
 
 import ldap
 from django_auth_ldap.config import LDAPSearch
 
-AUTH_LDAP_BIND_DN = "anonldap@ultra-ats.com"
-AUTH_LDAP_BIND_PASSWORD = "atsadmin"
+AUTH_LDAP_BIND_DN = "anonldap@example.com"
+AUTH_LDAP_BIND_PASSWORD = "comapnypw"
 
-#AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=ultra-ats,dc=com",
-AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=Users,dc=ultra-ats,dc=com",
+AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=Users,dc=example,dc=com",
     ldap.SCOPE_SUBTREE, "(sAMAccountName=%(user)s)")
 #    ldap.SCOPE_SUBTREE, "(cn=%(user)s)")
 
 
-#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=ultra-ats,dc=com"
-#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=Users,dc=ultra-ats,dc=com"
-#AUTH_LDAP_USER_DN_TEMPLATE = "sAMAccountName=%(user)s,cn=Users,dc=ultra-ats,dc=com"
-#AUTH_LDAP_USER_DN_TEMPLATE = "cn=Users,dc=ultra-ats,dc=com"
-#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,dc=ultra-ats,dc=com"
-#AUTH_LDAP_START_TLS = True
 
 #AUTH_LDAP_GLOBAL_OPTIONS = {
 #                            ldap.OPT_REFERRALS: 0,
