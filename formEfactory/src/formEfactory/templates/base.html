@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://www.w3.org/2005/10/profile">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+{% block metarefreash %}{% endblock %}
+<title>{% block title %}{% endblock %}</title>
+
+<link type="text/css" href="/media/css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
+<link rel="stylesheet" type="text/css" href="/media/css/style.css" />
+
+<script type="text/javascript" src="/media/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+</head>
+
+<body>
+{% block headrail %} {% endblock %}
+
+<div class="main">
+  <div class="floatmain">
+   {% block content %}{% endblock %}
+   </div>
+</div>
+
+<div class="footer">
+	<br/><br/><br/>
+     {% block footrail %} {% endblock %}
+</div>
+</body>
+</html>
