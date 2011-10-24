@@ -1,0 +1,23 @@
+{% extends "web/base.html" %}
+{% block title %} Poll: {{ object.question }} {% endblock %}
+{% block body %}
+<div id="poll">
+  <p>We have a question for you. {{ object.question }}
+  <p> So far we have {{ object.up_votes }} upvotes and {{ object.down_votes }} downvotes, for an overall vote of {{ object.score }}! </p>
+
+  <script>
+  function vote(kind) {
+    $.getJSON("/vote/", { pk:{{ object.pk }}, vote: kind }, function(json){
+      alert("Was successful?: " + json['success']);
+    });
+  }
+
+  function addClickHandlers() {
+    $("#upvote").click( function() { vote("up") });
+    $("#downvote").click( function() { vote("down") });
+ }
+ $(document).ready(addClickHandlers);
+  </script>
+  <p> Do you <span id="upvote">agree</span> or <span id="downvote">disagree</span>? </p>
+</div>
+{% endblock %}

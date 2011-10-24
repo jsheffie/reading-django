@@ -1,0 +1,9 @@
+{% extends "web/base.html" %}
+{% block title %} Our Polls! {% endblock %}
+{% block body %}
+<div id="polls">
+  {% for object in object_list %}
+  <p id="poll{{ object.pk }}" ><a href="/poll/{{ object.pk }}/">{{ object }}</a> has a score of {{ object.score }}.</p>
+  {% endfor %}
+</div>
+{% endblock %}
