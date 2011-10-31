@@ -1,0 +1,9 @@
+Installing RabbitMQ 
+
+Ubuntu:
+Installed rabbitmq-server
+
+sudo apt-get install python-pip git-core
+
+RedHat:
+

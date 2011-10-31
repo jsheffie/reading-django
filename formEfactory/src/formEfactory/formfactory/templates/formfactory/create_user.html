@@ -74,7 +74,7 @@
 						//$.post("test.php", );
 						console.log(data);
 						$.post("/xhr_test/", data);
-						$( this ).dialog+ "close" );
+						$( this ).dialog("close" );
 					}
 				},
 				Cancel: function() {
@@ -87,8 +87,7 @@
 		});
 
 		$( "#create-user" )
-		.button()
-		.click(function() {
+		.button().click(function() {
 			$( "#dialog-form" ).dialog( "open" );
 		});
 	});
