@@ -1,4 +1,5 @@
 # Django settings for django_celery_demoproject project.
+import os
 import djcelery
 djcelery.setup_loader()
 
@@ -12,22 +13,36 @@ ADMINS = (
 MANAGERS = ADMINS
 
 CELERY_RESULT_BACKEND = "database"
+#BROKER_HOST = "localhost"
+#BROKER_PORT = 5672
+#BROKER_USER = "guest"
+#BROKER_PASSWORD = "guest"
+#BROKER_VHOST = "/"
+
+
+#CELERY_RESULT_BACKEND = "amqp"
 BROKER_HOST = "localhost"
 BROKER_PORT = 5672
-BROKER_USER = "guest"
-BROKER_PASSWORD = "guest"
-BROKER_VHOST = "/"
+BROKER_USER = "rm3"
+BROKER_PASSWORD = "password"
+BROKER_VHOST = "rm3"
 
-CELERY_QUEUES = {
-                 "regular_tasks": {"binding_key": "task.#"},
-                 "twitter_tasks": {"binding_key": "twitter.#"},
-                 "feed_tasks": {"binding_key": "feed.#"},
-                 }
+# How many
+#CELERY_CONCURRENCY
+
+#CELERY_QUEUES = {
+#                 "regular_tasks": {"binding_key": "task.#"},
+#                 "twitter_tasks": {"binding_key": "twitter.#"},
+#                 "feed_tasks": {"binding_key": "feed.#"},
+#                 }
+
+def rel(*x):
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/jds/workspace/django_celery_demoproject/src/sqlite.db',                      # Or path to database file if using sqlite3.
+        'NAME': rel('sqlite.db'), 
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -76,7 +91,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'celery',
-    'djcelery'
+    'djcelery',
     'demoapp',
     'twitterfollow',
 )

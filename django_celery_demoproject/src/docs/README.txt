@@ -1,0 +1,72 @@
+Installing rabbitMQ
+Installing Celery
+Installing Django-celery
+
+These examples (twitterfollow, and demoapp) came out of the git repository, 
+https://github.com/ask/django-celery.git
+twitterfollow is an incomplete example.
+
+
+$ sudo rabbitmqctl add_user rm3 password
+$ sudo rabbitmqctl list_users
+$ sudo rabbitmqctl add_vhost rm3
+$ sudo rabbitmqctl set_permissions -p rm3 rm3 password ".*"
+$ sudo rabbitmqctl set_permissions -p rm3 rm3 "" ".*"
+$ sudo rabbitmqctl set_permissions -p rm3 rm3 "" ".*" ".*"
+
+
+
+
+Creating table celery_taskmeta
+Creating table celery_tasksetmeta
+Creating table djcelery_intervalschedule
+Creating table djcelery_crontabschedule
+Creating table djcelery_periodictasks
+Creating table djcelery_periodictask
+Creating table djcelery_workerstate
+Creating table djcelery_taskstate
+
+
+./manage.py celeryd --loglevel=INFO
+-E to enable events for celerycam
+./manage.py celeryd -E --loglevel=INFO
+
+
+$ sudo rabbitmqctl help
+$ sudo rabbitmqctl status
+$ sudo rabbitmqctl list_queues
+$ sudo rabbitmqctl list_bindings
+$ sudo rabbitmqctl list_connections
+
+
+Celery Stuff: ( through django) 
+$ ./manage.py help
+$ ./manage.py celeryd
+$ ./manage.py celerybeat
+$ ./manage.py camqadm
+$ ./manage.py celeryev
+$ ./manage.py celeryctl status
+
+$ ./manage.py celeryctl status
+$ ./manage.py celeryctl inspect active
+$ ./manage.py celeryctl inspect scheduled
+$ ./manage.py celeryctl inspect reserved
+$ ./manage.py celeryctl inspect revoked
+$ ./manage.py celeryctl inspect stats
+$ ./manage.py celeryctl inspect enable_events
+$ ./manage.py celeryctl inspect disable_events
+
+http://celery.readthedocs.org/en/latest/userguide/monitoring.html
+
+Starting the monitor
+
+The Celery section will already be present in your admin interface, but you won’t see any data appearing until you start the snapshot camera.
+
+$ ./manage.py celeryctl inspect enable_events
+$ ./manage.py celerycam
+-- now the django "tasks" section will be populated --
+
+
+RabbitMQ ships with the rabbitmqctl(1) command, with this you can list
+queues, exchanges, bindings, queue lengths, the memory usage of each
+queue, as well as manage users, virtual hosts and their permissions.
