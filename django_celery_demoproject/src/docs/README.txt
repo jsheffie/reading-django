@@ -10,11 +10,7 @@ twitterfollow is an incomplete example.
 $ sudo rabbitmqctl add_user rm3 password
 $ sudo rabbitmqctl list_users
 $ sudo rabbitmqctl add_vhost rm3
-$ sudo rabbitmqctl set_permissions -p rm3 rm3 password ".*"
-$ sudo rabbitmqctl set_permissions -p rm3 rm3 "" ".*"
-$ sudo rabbitmqctl set_permissions -p rm3 rm3 "" ".*" ".*"
-
-
+$ sudo rabbitmqctl set_permissions -p rm3 rm3 ".*" ".*" ".*"
 
 
 Creating table celery_taskmeta
@@ -70,3 +66,22 @@ $ ./manage.py celerycam
 RabbitMQ ships with the rabbitmqctl(1) command, with this you can list
 queues, exchanges, bindings, queue lengths, the memory usage of each
 queue, as well as manage users, virtual hosts and their permissions.
+
+# ERROR: had a problem with my home setup... I had a celry queue/exchange on vhost "/" 
+# instead of vhost "rm3"
+$ sudo rabbitmqctl list_queues -p rm3
+
+
+How do I create AMQP commands to the system? ( w/out writing code)
+ampq-tools package
+  - /usr/bin/amqp-consume
+  - /usr/bin/amqp-declare-queue
+  - /usr/bin/amqp-delete-queue
+  - /usr/bin/amqp-get
+  - /usr/bin/amqp-publish
+
+$ amqp-delete-queue --vhost="/" --username="guest" --password="guest" -q=celery
+# This worked...... deleted my celery queue.. ( for vhost "/") but did not resolve my
+# situation...turns out I had a permissions problem all along... ( I did not get the ".*"
+# correct in this statement... which caused my problems.
+$ sudo rabbitmqctl set_permissions -p rm3 rm3 ".*" ".*" ".*"
