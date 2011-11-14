@@ -85,3 +85,9 @@ $ amqp-delete-queue --vhost="/" --username="guest" --password="guest" -q=celery
 # situation...turns out I had a permissions problem all along... ( I did not get the ".*"
 # correct in this statement... which caused my problems.
 $ sudo rabbitmqctl set_permissions -p rm3 rm3 ".*" ".*" ".*"
+
+
+
+ ./manage.py celeryd -E --loglevel INFO
+./manage.py celerycam
+./manage.py celerycam
